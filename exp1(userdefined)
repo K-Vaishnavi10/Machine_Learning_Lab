@@ -1,0 +1,49 @@
+def Mean(arr):
+    n = len(arr)
+    sum = 0;
+    for i in arr:
+        sum+=i
+    return sum/n
+    
+def Median(arr):
+    n = len(arr)
+    if n%2==0:
+        return (arr[n//2-1]+arr[n//2])/2
+    else:
+        return arr[n//2]
+        
+def Mode(arr):
+    mode = arr[0]
+    max_freq = 0
+    for i in arr:
+        count = 0
+        for j in arr:
+            if i==j:
+                count+=1
+        if count>max_freq:
+            max_freq = count
+            mode = i
+    return mode
+    
+def Variance(arr):
+    n = len(arr)
+    total = 0
+    for i in arr:
+        total+=(i-mean)**2
+    return total/n-1
+    
+def Std_dev(variance):
+    return variance**0.5
+    
+arr = list(map(int,input("Enter the numbers: ").split()))
+arr.sort()
+mean = Mean(arr)
+median = Median(arr)
+mode = Mode(arr)
+variance = Variance(arr)
+standard_deviation = Std_dev(variance)
+print("Mean =", mean)
+print("Median =", median)
+print("Mode =", mode)
+print("Variance =", variance) 
+print("Standard Deviation =", standard_deviation)
