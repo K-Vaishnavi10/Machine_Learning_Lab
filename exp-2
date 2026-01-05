@@ -1,0 +1,60 @@
+# Arithmetic Array Operations using statistics, math, numpy, and scipy
+
+import math
+import statistics
+import numpy as np
+from scipy import stats
+from scipy import linalg
+
+# Define two numeric arrays
+arr1 = np.array([10, 20, 30, 40, 50])
+arr2 = np.array([2, 4, 6, 8, 10])
+
+print("Array 1:", arr1)
+print("Array 2:", arr2)
+
+# ---------------- Arithmetic Operations ----------------
+
+print("\nAddition:", arr1 + arr2)
+print("Subtraction:", arr1 - arr2)
+print("Multiplication:", arr1 * arr2)
+print("Division:", arr1 / arr2)
+print("Exponentiation:", np.power(arr1, 2))
+print("Modulus:", arr1 % arr2)
+
+# ---------------- Using math library ----------------
+
+sqrt_values = [math.sqrt(x) for x in arr1]
+power_values = [math.pow(x, 2) for x in arr1]
+
+print("\nSquare Root using math:", sqrt_values)
+print("Power (x^2) using math:", power_values)
+
+# ---------------- Using statistics library ----------------
+
+mean_val = statistics.mean(arr1.tolist())
+median_val = statistics.median(arr1.tolist())
+stdev_val = statistics.stdev(arr1.tolist())
+
+print("\nStatistics on Array 1:")
+print("Mean:", mean_val)
+print("Median:", median_val)
+print("Standard Deviation:", stdev_val)
+
+# ---------------- Using scipy library ----------------
+
+# Z-score normalization
+z_scores = stats.zscore(arr1)
+print("\nZ-scores using scipy.stats:", z_scores)
+
+# Matrix for determinant and inverse
+matrix = np.array([[1, 2], [3, 4]])
+
+# Determinant
+det = linalg.det(matrix)
+print("\nMatrix:\n", matrix)
+print("Determinant using scipy:", det)
+
+# Inverse
+inv = linalg.inv(matrix)
+print("Inverse using scipy:\n", inv)
